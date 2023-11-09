@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation"
+    app:startDestination="@id/homeScreen">
+
+    <fragment
+        android:id="@+id/homeScreen"
+        android:name="uz.gita.noteapp_mehriddinn.presentation.screen.home.HomeScreen"
+        android:label="Notes"
+        tools:layout="@layout/screen_home">
+        <action
+            android:id="@+id/action_homeScreen_to_addNoteScreen"
+            app:destination="@id/addNoteScreen"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_homeScreen_to_trashScreen"
+            app:destination="@id/trashScreen" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addNoteScreen"
+        android:name="uz.gita.noteapp_mehriddinn.presentation.screen.addNote.AddNoteScreen"
+        android:label="Add"
+        tools:layout="@layout/addnote_screen" >
+        <action
+            android:id="@+id/action_addNoteScreen_to_homeScreen"
+            app:destination="@id/homeScreen" />
+        <argument
+            android:name="noteData"
+            app:argType="uz.gita.noteapp_mehriddinn.data.model.NoteData" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/trashScreen"
+        android:name="uz.gita.noteapp_mehriddinn.presentation.screen.trash.TrashScreen"
+        android:label="Deleted"
+        tools:layout="@layout/screen_trash" />
+
+</navigation>
